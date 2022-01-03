@@ -233,6 +233,7 @@ func (g *GTA) markedPackages() (map[string]map[string]bool, error) {
 
 	// get our diff'd directories
 	fmt.Println("Here")
+	fmt.Printf("%+v, %T, %#v\n", g.differ, g.differ, g.differ)
 	dirs, err := g.differ.Diff()
 	if err != nil {
 		return nil, fmt.Errorf("diffing directory for dirty packages, %v", err)
