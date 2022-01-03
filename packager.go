@@ -106,8 +106,13 @@ type packageContext struct {
 func (p *packageContext) PackageFromDir(dir string) (*Package, error) {
 	// try importing using ImportDir first so that the expected kinds of errors
 	// (e.g. build.NoGoError) will be returned.
+	fmt.Println("=================================================")
+	fmt.Println(dir)
+	defer func() { fmt.Println("=================================================") }()
 	pkg, err := p.ctx.ImportDir(dir, 0)
+	fmt.Printf("%+v\n", pkg)
 	pkg2 := packageFrom(pkg)
+	fmt.Printf("%+v\n", pkg2)
 	resolveLocal(pkg2, dir, p.modulesNamesByDir)
 	pkg2.ImportPath = stripVendor(pkg2.ImportPath)
 	p.packages[pkg2.ImportPath] = struct{}{}
