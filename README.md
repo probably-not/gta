@@ -13,7 +13,7 @@ since you will know which packages (and dependencies) have changed.
 ## Installation
 
 ```sh
-go get github.com/digitalocean/gta/...
+go get github.com/probably-not/gta/...
 ```
 
 After installation, you will have a `gta` binary in `$GOPATH/bin/`
